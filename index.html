@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body {
+    margin: 0;
+    background: transparent;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+.banner {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 90px;
+    background: linear-gradient(90deg, #06164d, #103b9c, #06164d);
+    border: 2px solid #00cfff;
+    border-radius: 15px;
+    box-shadow: 0 0 15px #008cff;
+    color: white;
+    overflow: hidden;
+}
+.live {
+    background: #f00035;
+    padding: 15px;
+    font-size: 22px;
+    font-weight: bold;
+}
+.logo {
+    padding: 15px;
+    font-size: 25px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+.logo span {
+    color: #00e5ff;
+}
+.scroll {
+    flex: 1;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.scroll-text {
+    display: inline-block;
+    padding-left: 100%;
+    font-size: 19px;
+    font-weight: bold;
+    animation: move 22s linear infinite;
+}
+@keyframes move {
+    from { transform: translateX(0); }
+    to { transform: translateX(-100%); }
+}
+.subscribe {
+    background: #ffcc00;
+    color: #071644;
+    padding: 18px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+</style>
+</head>
+<body>
+<div class="banner">
+    <div class="live">● LIVE</div>
+    <div class="logo">
+        GURBANI RAS <span>LIVE</span>
+    </div>
+    <div class="scroll">
+        <div class="scroll-text">
+            🙏 GURUDWARA SRI GURU TEGH BAHADUR SAHIB JI,
+            FARASHI TOLA, BAREILLY
+            ✦ LIVE GURBANI KIRTAN ✦
+            WAHEGURU JI KA KHALSA,
+            WAHEGURU JI KI FATEH 🙏
+            ✦ PLEASE LIKE, SHARE & SUBSCRIBE ✦
+        </div>
+    </div>
+    <div class="subscribe">
+        SUBSCRIBE NOW ▶
+    </div>
+</div>
+</body>
+</html>
