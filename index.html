@@ -3,42 +3,174 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gurbani Ras Live Banner</title>
 <style>
-body {
+* {
+    box-sizing: border-box;
+}
+html, body {
     margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
     background: transparent;
     overflow: hidden;
     font-family: Arial, sans-serif;
 }
 .banner {
+    position: relative;
+    isolation: isolate;
     display: flex;
     align-items: center;
     width: 100%;
     height: 90px;
-    background: linear-gradient(90deg, #06164d, #103b9c, #06164d);
-    border: 2px solid #00cfff;
+    background: linear-gradient(
+        90deg,
+        #020b30,
+        #082c79,
+        #1049b8,
+        #082c79,
+        #020b30
+    );
+    border: 2px solid #00d9ff;
     border-radius: 15px;
-    box-shadow: 0 0 15px #008cff;
+    box-shadow:
+        0 0 8px #00cfff,
+        0 0 20px rgba(0, 140, 255, 0.7),
+        inset 0 0 15px rgba(0, 190, 255, 0.25);
     color: white;
     overflow: hidden;
 }
+/* MOVING BACKGROUND STARS */
+.stars {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+}
+.star {
+    position: absolute;
+    color: #ffffff;
+    text-shadow:
+        0 0 5px #ffffff,
+        0 0 10px #00d9ff,
+        0 0 18px #008cff;
+    animation: twinkle 2s ease-in-out infinite alternate;
+}
+.star:nth-child(1) {
+    left: 5%;
+    top: 10%;
+    font-size: 13px;
+    animation-delay: 0s;
+}
+.star:nth-child(2) {
+    left: 18%;
+    top: 65%;
+    font-size: 17px;
+    animation-delay: 0.5s;
+}
+.star:nth-child(3) {
+    left: 31%;
+    top: 15%;
+    font-size: 10px;
+    animation-delay: 1s;
+}
+.star:nth-child(4) {
+    left: 43%;
+    top: 68%;
+    font-size: 15px;
+    animation-delay: 0.3s;
+}
+.star:nth-child(5) {
+    left: 57%;
+    top: 12%;
+    font-size: 12px;
+    animation-delay: 0.8s;
+}
+.star:nth-child(6) {
+    left: 68%;
+    top: 70%;
+    font-size: 18px;
+    animation-delay: 1.2s;
+}
+.star:nth-child(7) {
+    left: 79%;
+    top: 15%;
+    font-size: 11px;
+    animation-delay: 0.6s;
+}
+.star:nth-child(8) {
+    left: 91%;
+    top: 65%;
+    font-size: 15px;
+    animation-delay: 1.4s;
+}
+.star:nth-child(9) {
+    left: 49%;
+    top: 40%;
+    font-size: 9px;
+    animation-delay: 0.9s;
+}
+.star:nth-child(10) {
+    left: 73%;
+    top: 35%;
+    font-size: 12px;
+    animation-delay: 1.6s;
+}
+@keyframes twinkle {
+    0% {
+        opacity: 0.15;
+        transform: scale(0.65) rotate(0deg);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.2) rotate(45deg);
+    }
+    100% {
+        opacity: 0.35;
+        transform: scale(0.8) rotate(90deg);
+    }
+}
+/* LIVE BADGE */
 .live {
-    background: #f00035;
-    padding: 15px;
+    position: relative;
+    flex-shrink: 0;
+    background: linear-gradient(135deg, #ff1744, #c40032);
+    padding: 15px 17px;
     font-size: 22px;
     font-weight: bold;
-}
-.logo {
-    padding: 15px;
-    font-size: 25px;
-    font-weight: bold;
     white-space: nowrap;
+    box-shadow: 0 0 12px rgba(255, 0, 50, 0.5);
+    animation: liveGlow 2s infinite alternate;
+}
+@keyframes liveGlow {
+    from {
+        box-shadow: 0 0 5px rgba(255, 0, 50, 0.4);
+    }
+    to {
+        box-shadow: 0 0 18px rgba(255, 0, 50, 0.9);
+    }
+}
+/* CHANNEL LOGO */
+.logo {
+    position: relative;
+    flex-shrink: 0;
+    padding: 15px 18px;
+    font-size: 25px;
+    font-weight: 800;
+    white-space: nowrap;
+    text-shadow: 0 0 8px rgba(0, 180, 255, 0.5);
 }
 .logo span {
-    color: #00e5ff;
+    color: #00eaff;
+    text-shadow: 0 0 10px #00cfff;
 }
+/* SCROLLING TEXT */
 .scroll {
+    position: relative;
     flex: 1;
+    min-width: 0;
     overflow: hidden;
     white-space: nowrap;
 }
@@ -47,37 +179,120 @@ body {
     padding-left: 100%;
     font-size: 19px;
     font-weight: bold;
-    animation: move 22s linear infinite;
+    color: #ffffff;
+    text-shadow: 0 0 7px rgba(0, 200, 255, 0.6);
+    animation: move 24s linear infinite;
 }
 @keyframes move {
-    from { transform: translateX(0); }
-    to { transform: translateX(-100%); }
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);
+    }
 }
+/* SUBSCRIBE BUTTON */
 .subscribe {
-    background: #ffcc00;
+    position: relative;
+    flex-shrink: 0;
+    background: linear-gradient(135deg, #ffe34d, #ffb800);
     color: #071644;
-    padding: 18px;
-    font-weight: bold;
+    padding: 18px 15px;
+    font-size: 15px;
+    font-weight: 800;
     white-space: nowrap;
+    box-shadow: 0 0 12px rgba(255, 204, 0, 0.45);
+}
+/* SUBTLE SHIMMER */
+.banner::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -35%;
+    width: 18%;
+    height: 200%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.16),
+        transparent
+    );
+    transform: rotate(20deg);
+    animation: shimmer 7s linear infinite;
+    pointer-events: none;
+    z-index: 2;
+}
+@keyframes shimmer {
+    0% {
+        left: -35%;
+    }
+    100% {
+        left: 120%;
+    }
+}
+/* SMALL SCREEN SUPPORT */
+@media (max-width: 600px) {
+    .banner {
+        height: 75px;
+        border-radius: 10px;
+    }
+    .live {
+        padding: 12px 9px;
+        font-size: 15px;
+    }
+    .logo {
+        padding: 10px;
+        font-size: 17px;
+    }
+    .scroll-text {
+        font-size: 14px;
+        animation-duration: 20s;
+    }
+    .subscribe {
+        padding: 13px 8px;
+        font-size: 11px;
+    }
+    .star {
+        text-shadow:
+            0 0 4px #ffffff,
+            0 0 8px #00d9ff;
+    }
 }
 </style>
 </head>
 <body>
 <div class="banner">
+    <!-- ANIMATED STARS -->
+    <div class="stars">
+        <span class="star">✦</span>
+        <span class="star">✧</span>
+        <span class="star">✦</span>
+        <span class="star">✧</span>
+        <span class="star">✦</span>
+        <span class="star">✧</span>
+        <span class="star">✦</span>
+        <span class="star">✧</span>
+        <span class="star">✦</span>
+        <span class="star">✧</span>
+    </div>
+    <!-- LIVE LABEL -->
     <div class="live">● LIVE</div>
+    <!-- CHANNEL NAME -->
     <div class="logo">
         GURBANI RAS <span>LIVE</span>
     </div>
+    <!-- MOVING MESSAGE -->
     <div class="scroll">
         <div class="scroll-text">
-            🙏 GURUDWARA SRI GURU TEGH BAHADUR SAHIB JI,
-            FARASHI TOLA, BAREILLY
-            ✦ LIVE GURBANI KIRTAN ✦
+            🙏 GURUDWARA SRI GURU TEGH BAHADUR SAHIB JI
+            ✦ FARASHI TOLA, BAREILLY ✦
+            LIVE GURBANI KIRTAN ✦
             WAHEGURU JI KA KHALSA,
             WAHEGURU JI KI FATEH 🙏
             ✦ PLEASE LIKE, SHARE & SUBSCRIBE ✦
         </div>
     </div>
+    <!-- SUBSCRIBE BUTTON -->
     <div class="subscribe">
         SUBSCRIBE NOW ▶
     </div>
